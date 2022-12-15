@@ -1,0 +1,4 @@
+outs:
+- md5: 4db2634cd28cdba2eebfb531853e8f1b
+  size: 12903
+  path: adm_data.csv
