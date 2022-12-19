@@ -1,21 +1,21 @@
 {% extends 'base.html' %}
 
 {% block head %}
-<h1> Admission predictor</h1>
+<h1 style="text-align: center;"> Admission predictor</h1>
 {% endblock %}
 
 {% block body %}
-<h2>Find the chance of getting admitted into an university</h2>
-<h4>Enter the details below</h4>
+<h2 style="text-align: center;">Find the chance of getting admitted into an university</h2>
+<h4 style="text-align: center;">Enter the details below</h4>
 
 <div class="content">
     <form class="input form" action="/", method="POST">
 
-        <input type="number" name="GRE Score" id="GRE" placeholder="Enter the GRE score">
+        <input type="number" name="GRE Score" id="GRE" placeholder="Enter the GRE score" x>
         </br>
 
-        <input type="text" name="CGPA" id="CGPA" placeholder="Enter the CGPA" >
-        <br>
+        <input type="text" name="CGPA" id="CGPA" placeholder="Enter the CGPA">
+        </br>
 
         <label for="university_rating">University rating:</label>
         <select id="university_rating" name="University Rating">
@@ -71,7 +71,7 @@
     </form>
 </div>
 
-<div class="container">
+<div class="container" style="text-align: center;">
   <form action="/{{response_}}" method="GET">
       <h4>Response</h4>
       <h4>Chance of getting admitted: {{response_}}%</h4>
