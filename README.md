@@ -42,3 +42,6 @@ Project Organization
 
 
 --------
+
+1. Add the storage files in data_given/*.csv</br>
+2. Configure using dvc
