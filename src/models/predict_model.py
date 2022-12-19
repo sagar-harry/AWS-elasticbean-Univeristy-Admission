@@ -17,14 +17,14 @@ def predict(data):
     model1 = joblib.load(params["model_training"]["model_location"])
     data["GRE Score"] = gre_scaler.transform(np.array(data["GRE Score"]).reshape(-1,1))[0][0]
     data["CGPA"] = cgpa_scaler.transform(np.array(data["CGPA"]).reshape(-1,1))[0][0]
-    print(data)
     return model1.predict(np.array(list(data.values())).reshape(1,-1))[0]
 
-def predict_value(data):
+def predict_value(GRE_score, CGPA, University_rating, SOP, LOR, Research):
     with open(params["model_training"]["order_of_columns"], "r") as file:
         columns_names = json.loads(file.read())["Columns"]
     data1 = {}
+    data = {"GRE Score": GRE_score, "CGPA": CGPA, "University Rating":University_rating, "SOP":SOP, "LOR": LOR, "Research":Research}
     for i in columns_names:
         data1[i] = float(data[i])
     response = predict(data1)
-    return float(response)*100
+    return float(response)*100 if response<=1 else 100  # added to deal with edge cases of achieving 100% in all
