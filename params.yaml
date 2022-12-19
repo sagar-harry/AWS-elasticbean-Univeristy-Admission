@@ -13,3 +13,6 @@ model_training:
     splitting_params:
         random_state: 3
         split_size: 0.7
+    standard_scaler_location:
+        cgpa_scaler: models/scalers/CGPA_scaler.bin
+        gre_scaler: models/scalers/GRE_scaler.bin

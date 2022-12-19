@@ -24,7 +24,7 @@ def trainTestSplit(params):
     
     return X_train, X_test, y_train, y_test
 
-def standardizing(X_train, X_test):
+def standardizing(X_train, X_test, params):
     gre_scaler = StandardScaler()
     cgpa_scaler = StandardScaler()
     X_train["GRE Score"] = gre_scaler.fit_transform(
@@ -37,14 +37,17 @@ def standardizing(X_train, X_test):
                                     np.array(X_train["CGPA"]).reshape(-1,1))
     X_test["CGPA"] = cgpa_scaler.transform(
                                     np.array(X_test["CGPA"]).reshape(-1,1))
-
+    
+    
+    joblib.dump(gre_scaler, params["model_training"]["standard_scaler_location"]["gre_scaler"], compress=True)
+    joblib.dump(cgpa_scaler, params["model_training"]["standard_scaler_location"]["cgpa_scaler"], compress=True)
     return X_train, X_test
 
 def train_model(config):
     params = retrieve_params(config=config)
 
     X_train, X_test, y_train, y_test = trainTestSplit(params)
-    X_train_standardized, X_test_standardized = standardizing(X_train, X_test)
+    X_train_standardized, X_test_standardized = standardizing(X_train, X_test, params)
     model1 = Ridge(alpha=params["model_training"]["model_params"]["Ridge"]["alpha"])
     model1.fit(X_train_standardized, y_train)
 
@@ -62,7 +65,6 @@ def train_model(config):
     params = retrieve_params(config=config)
     joblib.dump(model1, params["model_training"]["model_location"])
     
-
 
 if __name__=="__main__":
     args = argparse.ArgumentParser()
