@@ -8,6 +8,7 @@ import numpy as np
 from sklearn.linear_model import Ridge
 from sklearn.metrics import r2_score
 import joblib
+import json
 
 def retrieve_params(config):
     with open(config) as yaml_file:
@@ -41,6 +42,8 @@ def standardizing(X_train, X_test, params):
     
     joblib.dump(gre_scaler, params["model_training"]["standard_scaler_location"]["gre_scaler"], compress=True)
     joblib.dump(cgpa_scaler, params["model_training"]["standard_scaler_location"]["cgpa_scaler"], compress=True)
+    with open(params["model_training"]["order_of_columns"], "w") as file:
+        file.write(json.dumps({"Columns" : list(X_train.columns)}))
     return X_train, X_test
 
 def train_model(config):
