@@ -1,9 +1,15 @@
 data:
     input_data: data_given/adm_data.csv
-    raw_data: data/raw/adm_data.csv
     processed_data: data/processed/processed_data.csv
-
+    raw_data: data/raw/adm_data.csv
 model_training:
-    splitting params:
+    model_location: models/model1.joblib
+    model_metrics:
+        testing_r2_score: 0.7904154306490694
+        training_r2_score: 0.8121671916778028
+    model_params:
+        Ridge:
+            alpha: 1.67
+    splitting_params:
         random_state: 3
         split_size: 0.7
