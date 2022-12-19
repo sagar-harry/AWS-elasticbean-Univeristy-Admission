@@ -5,14 +5,18 @@ data:
 model_training:
     model_location: models/model1.joblib
     model_metrics:
-        testing_r2_score: 0.7904154306490694
-        training_r2_score: 0.8121671916778028
+        testing_r2_score: 0.7728959676022699
+        training_r2_score: 0.8004351183873011
     model_params:
         Ridge:
             alpha: 1.67
+    order_of_columns: models/order_of_columns/order.txt
     splitting_params:
         random_state: 3
         split_size: 0.7
     standard_scaler_location:
         cgpa_scaler: models/scalers/CGPA_scaler.bin
         gre_scaler: models/scalers/GRE_scaler.bin
+webapp:
+    static_folder: webapp/static
+    template_folder: webapp/template_folder

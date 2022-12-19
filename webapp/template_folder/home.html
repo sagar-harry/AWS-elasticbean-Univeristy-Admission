@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<h1> Admission predictor</h1>
+{% endblock %}
+
+{% block body %}
+<h2>Find the chance of getting admitted into an university</h2>
+<h4>Enter the details below</h4>
+
+<div class="content">
+    <form class="input form" action="/", method="POST">
+
+        <input type="number" name="GRE Score" id="GRE" placeholder="Enter the GRE score">
+        </br>
+
+        <input type="text" name="CGPA" id="CGPA" placeholder="Enter the CGPA" >
+        <br>
+
+        <label for="university_rating">University rating:</label>
+        <select id="university_rating" name="University Rating">
+            <option value=1>1</option>
+            <option value=2>2</option>
+            <option value=3>3</option>
+            <option value=4>4</option>
+            <option value=5>5</option>
+          </select>
+        </br>
+
+        <label for="sop">SOP:</label>
+        <select id="sop" name="SOP">
+            <option value=0>0</option>
+            <option value=0.5>0.5</option>
+            <option value=1>1</option>
+            <option value=1.5>1.5</option>
+            <option value=2>2</option>
+            <option value=2.5>2.5</option>
+            <option value=3>3</option>
+            <option value=3.5>3.5</option>
+            <option value=4>4</option>
+            <option value=4.5>4.5</option>
+            <option value=5>5</option>            
+          </select>
+        </br>
+
+        <label for="lor">LOR:</label>
+        <select id="lor" name="LOR">
+            <option value=0>0</option>
+            <option value=0.5>0.5</option>
+            <option value=1>1</option>
+            <option value=1.5>1.5</option>
+            <option value=2>2</option>
+            <option value=2.5>2.5</option>
+            <option value=3>3</option>
+            <option value=3.5>3.5</option>
+            <option value=4>4</option>
+            <option value=4.5>4.5</option>
+            <option value=5>5</option>            
+          </select>
+        </br>
+
+        <label for="Research">Research:</label>
+        <select id="Research" name="Research">
+            <option value=0>0</option>
+            <option value=1>1</option>
+          </select>
+        </br>
+
+        <button class="button1">Calculate</button>
+
+    </form>
+</div>
+
+<div class="container">
+  <form action="/{{response_}}" method="GET">
+      <h4>Response</h4>
+      <h4>Chance of getting admitted: {{response_}}%</h4>
+  </form>
+
+</div>
+{% endblock %}

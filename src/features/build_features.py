@@ -33,7 +33,7 @@ def build_feature(config):
     indices_to_drop = lor_drop_indices + cgpa_drop_indices
     df.drop(indices_to_drop, inplace=True)
     
-    df.to_csv(params["data"]["processed_data"])
+    df.to_csv(params["data"]["processed_data"], index=False)
 
 if __name__ == "__main__":
     args = argparse.ArgumentParser()
