@@ -12,3 +12,4 @@ gr.Interface(predict_value, inputs=[GRE_score, CGPA, University_rating, SOP, LOR
         outputs="label",
         title="Chance of getting into university",
         live=True).launch()
+        
