@@ -8,11 +8,14 @@ def retrieve_params(config):
         params = yaml.safe_load(yaml_file)
     return params
 
+
 params = retrieve_params(config="params.yaml")
 
-app = Flask(__name__,
-            static_folder=params["webapp"]["static_folder"],
-            template_folder=params["webapp"]["template_folder"])
+app = Flask(
+    __name__,
+    static_folder=params["webapp"]["static_folder"],
+    template_folder=params["webapp"]["template_folder"],
+)
 
 
 @app.route("/", methods=["GET", "POST"])
@@ -26,6 +29,7 @@ def home():
         elif request.json:
             response_ = predict_value(request.json)
             return jsonify(response_)
+
 
 if __name__ == "__main__":
     app.run(debug=True)

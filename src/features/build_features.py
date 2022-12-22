@@ -17,8 +17,8 @@ def calculate_upper_lower_bounds(df, column_name):
     q1 = df[column_name].describe()[4]
     q3 = df[column_name].describe()[6]
     iqr = q3 - q1
-    upper_limit = q3 + 1.5*(iqr)
-    lower_limit = q1 - 1.5*(iqr)
+    upper_limit = q3 + 1.5 * (iqr)
+    lower_limit = q1 - 1.5 * (iqr)
     return upper_limit, lower_limit
 
 
@@ -28,13 +28,14 @@ def build_feature(config):
     df.columns = [i.strip() for i in df.columns]
     df.drop(["Serial No.", "TOEFL Score"], axis=1, inplace=True)
     lor_upper_limit, lor_lower_limit = calculate_upper_lower_bounds(df, "LOR")
-    cgpa_upper_limit, cgpa_lower_limit = calculate_upper_lower_bounds(
-        df, "CGPA")
+    cgpa_upper_limit, cgpa_lower_limit = calculate_upper_lower_bounds(df, "CGPA")
 
     lor_drop_indices = list(
-        df[(df["LOR"] > lor_upper_limit) | (df["LOR"] < lor_lower_limit)].index)
+        df[(df["LOR"] > lor_upper_limit) | (df["LOR"] < lor_lower_limit)].index
+    )
     cgpa_drop_indices = list(
-        df[(df["CGPA"] > cgpa_upper_limit) | (df["CGPA"] < cgpa_lower_limit)].index)
+        df[(df["CGPA"] > cgpa_upper_limit) | (df["CGPA"] < cgpa_lower_limit)].index
+    )
 
     indices_to_drop = lor_drop_indices + cgpa_drop_indices
     df.drop(indices_to_drop, inplace=True)
