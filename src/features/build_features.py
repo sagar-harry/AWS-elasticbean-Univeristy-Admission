@@ -1,10 +1,12 @@
 # Possible chance of outlier in LOR and CGPA as seen from box plots
 # Toefl score and GRE show a high correlation
-# Although GRE score and CGPA show high correlation, based on field specific experience they both play an important role
+# Although GRE score and CGPA show high correlation, based on field
+# specific experience they both play an important role
 
 import argparse
-import yaml
+
 import pandas as pd
+import yaml
 
 
 def retrieve_params(config):
@@ -28,13 +30,15 @@ def build_feature(config):
     df.columns = [i.strip() for i in df.columns]
     df.drop(["Serial No.", "TOEFL Score"], axis=1, inplace=True)
     lor_upper_limit, lor_lower_limit = calculate_upper_lower_bounds(df, "LOR")
-    cgpa_upper_limit, cgpa_lower_limit = calculate_upper_lower_bounds(df, "CGPA")
+    cgpa_upper_limit, cgpa_lower_limit = calculate_upper_lower_bounds(df,
+                                                                      "CGPA")
 
     lor_drop_indices = list(
         df[(df["LOR"] > lor_upper_limit) | (df["LOR"] < lor_lower_limit)].index
     )
     cgpa_drop_indices = list(
-        df[(df["CGPA"] > cgpa_upper_limit) | (df["CGPA"] < cgpa_lower_limit)].index
+        df[(df["CGPA"] > cgpa_upper_limit) |
+           (df["CGPA"] < cgpa_lower_limit)].index
     )
 
     indices_to_drop = lor_drop_indices + cgpa_drop_indices

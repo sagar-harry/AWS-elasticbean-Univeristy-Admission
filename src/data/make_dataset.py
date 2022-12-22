@@ -1,6 +1,7 @@
-import yaml
 import argparse
 import shutil
+
+import yaml
 
 
 def retrieve_params(config):

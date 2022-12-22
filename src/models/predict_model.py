@@ -1,7 +1,8 @@
-import joblib
-import yaml
-import numpy as np
 import json
+
+import joblib
+import numpy as np
+import yaml
 
 
 def retrieve_params(config):

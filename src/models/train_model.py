@@ -1,14 +1,14 @@
 import argparse
-import yaml
-from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import StandardScaler
-import pandas as pd
-import numpy as np
+import json
 
+import joblib
+import numpy as np
+import pandas as pd
+import yaml
 from sklearn.linear_model import Ridge
 from sklearn.metrics import r2_score
-import joblib
-import json
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
 
 
 def retrieve_params(config):
