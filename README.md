@@ -1,7 +1,6 @@
-Structuring DS projects
+University Rating
 ==============================
-
-Using various tools to structure DS projects in a better way
+Finding chance of getting admission in university
 
 Project Organization
 ------------
