@@ -42,6 +42,17 @@ Project Organization
 
 --------
 
+UI:
+main branch
+
+
+<img width="581" alt="UI-flask" src="https://user-images.githubusercontent.com/68346310/209124452-f05d350b-cb43-4d1b-9fa3-f696212b3592.png">
+
+UI:
+gradio-ui branch
+
+<img width="930" alt="UI-Gradio" src="https://user-images.githubusercontent.com/68346310/209124538-21289f3f-bbd6-4a0b-af41-87f0284f329b.png">
+
 
 
 1. Add the storage files in data_given/*.csv</br>
