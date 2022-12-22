@@ -20,3 +20,6 @@ model_training:
 webapp:
     static_folder: webapp/static
     template_folder: webapp/template_folder
+
+form_data:
+    schema_json: schema.json
