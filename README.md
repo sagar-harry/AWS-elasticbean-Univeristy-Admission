@@ -3,7 +3,7 @@ University Rating
 Finding chance of getting admission in university
 
 
-AWS elstic beanstalk link: http://universityadmission-env.eba-pkhdpav5.ap-northeast-1.elasticbeanstalk.com/
+AWS elstic beanstalk link: http://universityadmission-env.eba-pkhdpav5.ap-northeast-1.elasticbeanstalk.com/ </br>
 Azure link: https://university-admission.azurewebsites.net/
 
 
