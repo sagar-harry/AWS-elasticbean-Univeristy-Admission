@@ -55,7 +55,7 @@ def predict(data):
     gre_scaler = joblib.load(
         params["model_training"]["standard_scaler_location"]["gre_scaler"]
     )
-    model1 = joblib.load(params["model_training"]["model_location"])
+    model1 = joblib.load(params["prediction"]["final-model"])
     data["GRE Score"] = gre_scaler.transform(
         np.array(data["GRE Score"]).reshape(-1, 1)
     )[0][0]

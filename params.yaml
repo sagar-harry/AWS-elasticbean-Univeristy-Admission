@@ -2,14 +2,22 @@ data:
     input_data: data_given/adm_data.csv
     processed_data: data/processed/processed_data.csv
     raw_data: data/raw/adm_data.csv
+form_data:
+    schema_json: schema.json
+mlflow_config:
+    artifacts_dir: artifacts
+    experiment_name: Ridge Regression
+    registered_model_name: RidgeRegressionModel
+    remote_server_uri: http://127.0.0.1:8000
+    run_name: mlops
 model_training:
     model_location: models/model1.joblib
     model_metrics:
-        testing_r2_score: 0.7728959676022699
-        training_r2_score: 0.8004351183873011
+        testing_r2_score: 0.7725966227718254
+        training_r2_score: 0.8004651380023844
     model_params:
         Ridge:
-            alpha: 1.67
+            alpha: 0.5
     order_of_columns: models/order_of_columns/order.txt
     splitting_params:
         random_state: 3
@@ -17,9 +25,8 @@ model_training:
     standard_scaler_location:
         cgpa_scaler: models/scalers/CGPA_scaler.bin
         gre_scaler: models/scalers/GRE_scaler.bin
+prediction:
+    final-model: final_model/model-1.joblib
 webapp:
     static_folder: webapp/static
     template_folder: webapp/template_folder
-
-form_data:
-    schema_json: schema.json
